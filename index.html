@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descubre tu árbol de la vida</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .question-container {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .scale-container {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+    }
+
+    .scale-container input[type="radio"] {
+      display: none;
+    }
+
+    .scale-container label {
+      display: block;
+      cursor: pointer;
+      width: 25px;
+      height: 25px;
+      text-align: center;
+      background-color: #f0f0f0;
+      line-height: 25px;
+      border-radius: 50%;
+      margin: 0 5px;
+    }
+
+    .scale-container label:hover {
+      background-color: #ddd;
+    }
+
+    .scale-container input[type="radio"]:checked+label {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .submit-btn {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .submit-btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Formulario de Preguntas</h1>
+  <form id="questionnaire">
+    <!-- Bloque 1 -->
+    <div class="question-container">
+      <label>Kéter de Kéter: ¿Vivimos con la serenidad de saber que la perfección no es un estado, sino un constante devenir?</label>
+      <div class="scale-container">
+        <input type="radio" id="question1_1" name="question1" value="1"><label for="question1_1">1</label>
+        <input type="radio" id="question1_2" name="question1" value="2"><label for="question1_2">2</label>
+        <input type="radio" id="question1_3" name="question1" value="3"><label for="question1_3">3</label>
+        <input type="radio" id="question1_4" name="question1" value="4"><label for="question1_4">4</label>
+        <input type="radio" id="question1_5" name="question1" value="5"><label for="question1_5">5</label>
+        <input type="radio" id="question1_6" name="question1" value="6"><label for="question1_6">6</label>
+        <input type="radio" id="question1_7" name="question1" value="7"><label for="question1_7">7</label>
+        <input type="radio" id="question1_8" name="question1" value="8"><label for="question1_8">8</label>
+        <input type="radio" id="question1_9" name="question1" value="9"><label for="question1_9">9</label>
+        <input type="radio" id="question1_10" name="question1" value="10"><label for="question1_10">10</label>
+      </div>
+    </div>
+
+    <!-- Bloque 2 -->
+    <div class="question-container">
+      <label>Kéter de Jojmá: ¿Tenemos deseo de crecer?</label>
+      <div class="scale-container">
+        <input type="radio" id="question2_1" name="question2" value="1"><label for="question2_1">1</label>
+        <input type="radio" id="question2_2" name="question2" value="2"><label for="question2_2">2</label>
+        <input type="radio" id="question2_3" name="question2" value="3"><label for="question2_3">3</label>
+        <input type="radio" id="question2_4" name="question2" value="4"><label for="question2_4">4</label>
+        <input type="radio" id="question2_5" name="question2" value="5"><label for="question2_5">5</label>
+        <input type="radio" id="question2_6" name="question2" value="6"><label for="question2_6">6</label>
+        <input type="radio" id="question2_7" name="question2" value="7"><label for="question2_7">7</label>
+        <input type="radio" id="question2_8" name="question2" value="8"><label for="question2_8">8</label>
+        <input type="radio" id="question2_9" name="question2" value="9"><label for="question2_9">9</label>
+        <input type="radio" id="question2_10" name="question2" value="10"><label for="question2_10">10</label>
+      </div>
+    </div>
+
+    <!-- Botón para enviar -->
+    <button type="button" class="submit-btn" onclick="calcularMedia()">Enviar Respuestas</button>
+  </form>
+
+  <!-- Mostrar resultado -->
+  <div id="result" style="margin-top: 20px; display: none;">
+    <h2>Resultado</h2>
+    <p id="resultado_text"></p>
+  </div>
+
+  <script>
+    function calcularMedia() {
+      // Obtener todas las respuestas
+      let respuestas = [];
+      let form = document.getElementById('questionnaire');
+      let inputs = form.querySelectorAll('input[type="radio"]:ch
+<!-- partial -->
+  
+</body>
+</html>
