@@ -99,49 +99,47 @@
     <!-- Puedes seguir añadiendo más preguntas de forma similar -->
     
     <!-- Botón para enviar -->
-    <button type="button" class="submit-btn" onclick="calcularMedia()">Enviar Respuestas</button>
+    <button type="button" class="submit-btn" onclick="enviarFormulario()">Enviar Respuestas</button>
 </form>
 
 <!-- Mostrar resultado -->
 <div id="result" style="margin-top: 20px; display: none;">
     <h2>Resultado</h2>
     <p id="resultado_text"></p>
+    <img id="imagen_resultado" src="" alt="Imagen resultado" style="max-width: 100%;"/>
 </div>
 
 <script>
-    function calcularMedia() {
-        // Obtener todas las respuestas
-        let respuestas = [];
+    function enviarFormulario() {
+        // Obtener todas las respuestas seleccionadas
+        let respuestas = {};
         let form = document.getElementById('questionnaire');
         let inputs = form.querySelectorAll('input[type="radio"]:checked');
         
+        // Crear un objeto con las respuestas del formulario
         inputs.forEach(input => {
-            respuestas.push(parseInt(input.value));
+            respuestas[input.name] = parseInt(input.value);
         });
-        
-        // Dividir las preguntas en bloques de 10
-        let bloques = [];
-        for (let i = 0; i < respuestas.length; i += 10) {
-            bloques.push(respuestas.slice(i, i + 10));
-        }
-        
-        // Calcular la media por bloque
-        let medias = bloques.map(bloque => {
-            let suma = bloque.reduce((acc, val) => acc + val, 0);
-            return suma / bloque.length;
-        });
-        
-        // Mostrar el resultado
-        let resultadoText = '';
-        medias.forEach((media, index) => {
-            resultadoText += `Media del bloque ${index + 1}: ${media.toFixed(2)}<br>`;
-        });
-        
-        document.getElementById('resultado_text').innerHTML = resultadoText;
-        document.getElementById('result').style.display = 'block';
+
+        // Enviar las respuestas al servidor usando fetch (POST)
+        fetch('/recibir_respuestas', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(respuestas)
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Mostrar la imagen del resultado
+            document.getElementById('imagen_resultado').src = data.imagen;
+            document.getElementById('result').style.display = 'block';  // Mostrar la sección de resultados
+        })
+        .catch(error => console.error('Error:', error));
     }
 </script>
 
 </body>
 </html>
+
 
